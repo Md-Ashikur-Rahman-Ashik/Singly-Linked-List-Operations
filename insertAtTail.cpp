@@ -16,7 +16,22 @@ public:
 
 void insertAtTail(Node *&head, int integerValue)
 {
-    
+    Node *newNode = new Node(integerValue);
+
+    if (head == NULL)
+    {
+        head = newNode;
+    }
+    else
+    {
+        Node *tmp = head;
+        while (tmp->nextPointer != NULL)
+        {
+            tmp = tmp->nextPointer;
+        }
+
+        tmp->nextPointer = newNode;
+    }
 }
 
 void printLinkedList(Node *head)
@@ -31,14 +46,15 @@ void printLinkedList(Node *head)
 
 int main()
 {
-    Node *head = new Node(10);
-    Node *secondNode = new Node(20);
-    Node *thirdNode = new Node(30);
+    // Node *head = new Node(10);
+    Node *head = NULL;
+    // Node *secondNode = new Node(20);
+    // Node *thirdNode = new Node(30);
 
-    head->nextPointer = secondNode;
-    secondNode->nextPointer = thirdNode;
+    // head->nextPointer = secondNode;
+    // secondNode->nextPointer = thirdNode;
 
-    
+    insertAtTail(head, 100);
     printLinkedList(head);
 
     return 0;
